@@ -1,13 +1,18 @@
 import React from 'react';
-import StyledImg from './avatar.style';
+import {AvatarImg, AvatarName, AvatarStyled} from './avatar.style';
+import {AvatarInterface} from "./avatar.type";
 
-interface AvatarInterface {
-    src: string,
-    alt?: string
-};
-
-const Avatar = ({src, alt=''}: AvatarInterface) => {
-    return <StyledImg src={src} alt={alt} />;
+const Avatar = (props: AvatarInterface) => {
+    const {
+        img: {src, alt},
+        name
+    } = props;
+    return (
+        <AvatarStyled>
+            <AvatarImg src={src} alt={alt}/>
+            <AvatarName>{name}</AvatarName>
+        </AvatarStyled>
+    );
 };
 
 export default Avatar;
