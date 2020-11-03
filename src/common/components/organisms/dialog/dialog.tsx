@@ -1,9 +1,12 @@
 import React, {useState, useEffect} from 'react';
+import { connect } from 'react-redux';
 import {Answer} from '../../atoms/answer/answer';
 import {AnswerList} from '../../molecules/answerList/answerList';
 import {Line} from "../../molecules/line/line";
 import {DialogStyled} from './dialog.styled';
 import {DialogInterface} from './dialog.type';
+import {clearDialog} from "../../../../store/components/dialog/dialog.action";
+import {dialogStateItem} from "../../../../store/components/dialog/dialog.type";
 
 /* todo:
 *   1. переход по репликам
@@ -11,46 +14,46 @@ import {DialogInterface} from './dialog.type';
 *   3. обработка ответов
 * */
 
-const Dialog = ({lines = []}: DialogInterface) => {
+const MapStateToProps = ({dialog}: DialogInterface) => ({
+    dialog
+});
+
+const mapDispatchToProps = {
+    clear: () => clearDialog()
+};
+
+const Dialog = ({dialog, clear}: DialogInterface) => {
     const [showAnswers, setShowAnswers] = useState<boolean>(false);
     const [currentLine, setCurrentLine] = useState<number>(0);
 
     useEffect(() => {
-        // todo: тут при доходе до -1 - удаление диалога из редакс-хранилища
-        if (!lines?.[currentLine]) {
-            console.log(`конец диалога. Переход на первую реплику`);
-            setCurrentLine(0);
-        }
+        if (dialog?.[currentLine]) return;
+        clear();
     }, [currentLine]);
 
     function answerClickHandler(goto: number) {
-        console.log(`on answer click ${goto}`);
         setShowAnswers(false);
         setCurrentLine(goto);
     };
 
     function lineClickHandler() {
-        const {goto} = lines[currentLine];
-        if (goto) {
-            setShowAnswers(false);
-            setCurrentLine(goto);
-        } else {
-            setShowAnswers(true);
-        }
+        const {goto} = dialog[currentLine];
+        setShowAnswers(!goto);
+        if (goto) setCurrentLine(goto);
     }
 
     return (
         <DialogStyled>
             {
-                !!lines?.[currentLine] &&
+                !!dialog?.[currentLine] &&
                 <>
                     <Line
-                        author={lines[currentLine].author}
-                        text={lines[currentLine].text}
+                        author={dialog[currentLine].author}
+                        text={dialog[currentLine].text}
                         onClick={() => lineClickHandler()}
                     />
                     {showAnswers && <AnswerList>
-                        {lines[currentLine]?.answers.map(({text, goto}) => <Answer
+                        {dialog[currentLine]?.answers.map(({text, goto}) => <Answer
                             text={text}
                             onClick={(e) => {
                                 e.preventDefault();
@@ -64,4 +67,4 @@ const Dialog = ({lines = []}: DialogInterface) => {
     );
 };
 
-export default Dialog;
+export default connect(MapStateToProps, mapDispatchToProps)(Dialog);
