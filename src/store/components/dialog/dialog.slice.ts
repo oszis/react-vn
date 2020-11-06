@@ -81,7 +81,7 @@ const lines: dialogStateItem[] = [
 
 const initialState: dialogStateItem[] = [];
 
-const dialogReducer = (state = lines, action: dialogActionType) => {
+const dialogReducer = (state = initialState, action: dialogActionType) => {
     switch (action.type) {
         case SET_DIALOG:
             return action.payload;

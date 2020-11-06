@@ -6,12 +6,11 @@ import {Line} from "../../molecules/line/line";
 import {DialogStyled} from './dialog.styled';
 import {DialogInterface} from './dialog.type';
 import {clearDialog} from "../../../../store/components/dialog/dialog.action";
-import {dialogStateItem} from "../../../../store/components/dialog/dialog.type";
 
 /* todo:
-*   1. переход по репликам
-*   2. показ ответов
-*   3. обработка ответов
+*   1. переход по репликам +
+*   2. показ ответов +
+*   3. обработка ответов -
 * */
 
 const MapStateToProps = ({dialog}: DialogInterface) => ({
@@ -59,6 +58,7 @@ const Dialog = ({dialog, clear}: DialogInterface) => {
                                 e.preventDefault();
                                 answerClickHandler(goto)
                             }}
+                            key={text}
                         />)}
                     </AnswerList>}
                 </>
