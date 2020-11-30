@@ -2,19 +2,12 @@ import React, {useEffect, useMemo, useRef} from "react";
 import {useResource} from "react-three-fiber";
 import * as THREE from "three";
 import {Mesh} from "three";
+import { ICanvasImage } from "./canvasImage.type";
 
-interface CanvasImageInterface {
-    url: string
-}
-
-const CanvasImage = (props: CanvasImageInterface) => {
+const CanvasImage = (props: ICanvasImage) => {
     const {url, ...rest} = props;
     const texture = useMemo(() => new THREE.TextureLoader().load(url), [url]);
     const meshResource = useResource<Mesh>();
-
-    useEffect(() => {
-        console.log(meshResource);
-    }, [meshResource]);
 
     return (
         <mesh ref={meshResource} {...rest}>

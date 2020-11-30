@@ -1,12 +1,12 @@
 export const SET_DIALOG = 'dialog/set';
 export const CLEAR_DIALOG = 'dialog/clear';
 
-interface dialogAnswerItem {
+export interface IDialogAnswerItem {
     text: string;
     goto: number
 };
 
-interface dialogStateItem {
+export interface IDialogStateItem {
     index: number;
     author: {
         name: string;
@@ -17,23 +17,17 @@ interface dialogStateItem {
     };
     text: string;
     goto?: number;
-    answers?: dialogAnswerItem[];
+    answers?: IDialogAnswerItem[];
 }
 
-interface dialogSetAction {
+export interface IDialogSetAction {
     type: typeof SET_DIALOG;
-    payload: dialogStateItem[];
+    payload: IDialogStateItem[];
 };
 
-interface dialogClearAction {
+export interface IDialogClearAction {
     type: typeof CLEAR_DIALOG;
     payload: [];
 }
 
-export type dialogActionType = dialogSetAction | dialogClearAction;
-
-export type {
-    dialogStateItem,
-    dialogSetAction,
-    dialogClearAction,
-};
+export type IDialogActionType = IDialogSetAction | IDialogClearAction;

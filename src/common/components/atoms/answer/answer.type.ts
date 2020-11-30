@@ -1,6 +1,6 @@
-interface AnswerInterface {
+interface IAnswer {
     text: string;
     onClick: (ev: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-export type {AnswerInterface};
+export type {IAnswer};

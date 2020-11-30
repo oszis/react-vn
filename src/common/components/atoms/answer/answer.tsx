@@ -1,8 +1,8 @@
 import React from "react";
-import {AnswerInterface} from './answer.type';
+import {IAnswer} from './answer.type';
 import {AnswerStyled} from './answer.style';
 
-const Answer = ({text, onClick}: AnswerInterface) => {
+const Answer = ({text, onClick}: IAnswer) => {
     return (
         <AnswerStyled onClick={onClick}>{text}</AnswerStyled>
     );

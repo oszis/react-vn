@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { IDialogStyledProps } from "./dialog.type";
+
 
 const DialogStyled = styled.div`
     position: fixed;
@@ -12,6 +14,7 @@ const DialogStyled = styled.div`
     flex-flow: column nowrap;
     align-items: stretch;
     justify-content: flex-end;
+    pointer-events: ${(props: IDialogStyledProps) => (props.show ? 'auto': 'none')};
 `;
 
 export {DialogStyled};

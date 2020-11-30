@@ -1,8 +1,8 @@
 import React from 'react';
 import {AvatarImg, AvatarName, AvatarStyled} from './avatar.style';
-import {AvatarInterface} from "./avatar.type";
+import {IAvatar} from "./avatar.type";
 
-const Avatar = (props: AvatarInterface) => {
+const Avatar = (props: IAvatar) => {
     const {
         img: {src, alt},
         name

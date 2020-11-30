@@ -1,4 +1,4 @@
-interface AvatarInterface {
+export interface IAvatar {
     name: string,
     img: {
         src: string,
@@ -7,5 +7,3 @@ interface AvatarInterface {
     background?: any,
     animation?: any
 }
-
-export type {AvatarInterface};

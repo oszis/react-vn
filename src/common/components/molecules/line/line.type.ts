@@ -1,8 +1,8 @@
-import {AvatarInterface} from "../../atoms/avatar/avatar.type";
+import {IAvatar} from "../../atoms/avatar/avatar.type";
 import React from "react";
 
 interface LineInterface {
-    author: AvatarInterface,
+    author: IAvatar,
     text: string,
     onClick: () => void;
 }

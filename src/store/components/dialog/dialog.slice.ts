@@ -1,7 +1,7 @@
-import {CLEAR_DIALOG, dialogActionType, dialogStateItem, SET_DIALOG} from "./dialog.type";
+import {CLEAR_DIALOG, IDialogActionType, IDialogStateItem, SET_DIALOG} from "./dialog.type";
 
 // todo: сделать эту крокозябру не массивом, а Map, чтобы было удобнее работать. Написать хелпер для создания диалогов
-const lines: dialogStateItem[] = [
+const lines: IDialogStateItem[] = [
     {
         index: 0,
         author: {
@@ -79,9 +79,9 @@ const lines: dialogStateItem[] = [
     }
 ]
 
-const initialState: dialogStateItem[] = [];
+const initialState: IDialogStateItem[] = [];
 
-const dialogReducer = (state = initialState, action: dialogActionType) => {
+const dialogReducer = (state = initialState, action: IDialogActionType) => {
     switch (action.type) {
         case SET_DIALOG:
             return action.payload;

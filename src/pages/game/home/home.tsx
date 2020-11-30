@@ -1,18 +1,26 @@
-import React, {useRef} from 'react';
-import { CanvasImage } from '../../../common/components/atoms/canvasImage/canvasImage';
+import React from 'react';
+import {Character} from '../../../common/components/organisms/character/character';
+import chars from './characters.json';
+import { IHomePage } from './home.type';
+import { ICharacter } from '../../../common/components/organisms/character/character.type';
 
-const HomePage: React.FC = (props) => {
+
+const HomePage = (props: IHomePage) => {
+    const {
+        characters = [...chars]
+    } = props;
+
     return (
-        <mesh
-            scale={[5,5,5]}
-            position={[0,0,150]}
-        >
-            <CanvasImage
-                url={'/logo512.png'}/>
-        </mesh>
-    )
-};
+        <>
+            {characters.map((char: ICharacter) =>
+                <Character
+                    key={char.name}
+                    {...char}
+                    />)}
+        </>
+    );
+}
 
 export {
     HomePage
-}
+};

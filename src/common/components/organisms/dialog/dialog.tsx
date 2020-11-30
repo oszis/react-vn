@@ -4,7 +4,7 @@ import {Answer} from '../../atoms/answer/answer';
 import {AnswerList} from '../../molecules/answerList/answerList';
 import {Line} from "../../molecules/line/line";
 import {DialogStyled} from './dialog.styled';
-import {DialogInterface} from './dialog.type';
+import {IDialog} from './dialog.type';
 import {clearDialog} from "../../../../store/components/dialog/dialog.action";
 
 /* todo:
@@ -13,7 +13,7 @@ import {clearDialog} from "../../../../store/components/dialog/dialog.action";
 *   3. обработка ответов -
 * */
 
-const MapStateToProps = ({dialog}: DialogInterface) => ({
+const MapStateToProps = ({dialog}: IDialog) => ({
     dialog
 });
 
@@ -21,7 +21,7 @@ const mapDispatchToProps = {
     clear: () => clearDialog()
 };
 
-const Dialog = ({dialog, clear}: DialogInterface) => {
+const Dialog = ({dialog, clear}: IDialog) => {
     const [showAnswers, setShowAnswers] = useState<boolean>(false);
     const [currentLine, setCurrentLine] = useState<number>(0);
 
@@ -42,7 +42,7 @@ const Dialog = ({dialog, clear}: DialogInterface) => {
     }
 
     return (
-        <DialogStyled>
+        <DialogStyled show={!!dialog?.[currentLine]}>
             {
                 !!dialog?.[currentLine] &&
                 <>
