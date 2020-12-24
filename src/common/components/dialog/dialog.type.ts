@@ -1,5 +1,5 @@
-import {IAvatar} from "../../atoms/avatar/avatar.type";
-import {IDialogClearAction} from "../../../../store/components/dialog/dialog.type";
+import {IAvatar} from "./avatar/avatar.type";
+import {IDialogClearAction} from "../../../store/components/dialog/dialog.type";
 
 interface IDialogAnswer {
     text: string;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {AvatarStyled} from "../../atoms/avatar/avatar.style";
+import {AvatarStyled} from "../avatar/avatar.style";
 
 const LineStyled = styled.div`
   background-color: rgba(0,0,0,0.1);

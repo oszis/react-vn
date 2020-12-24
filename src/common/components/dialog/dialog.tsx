@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import { connect } from 'react-redux';
-import {Answer} from '../../atoms/answer/answer';
-import {AnswerList} from '../../molecules/answerList/answerList';
-import {Line} from "../../molecules/line/line";
+import {Answer} from './answer/answer';
+import {AnswerList} from './answerList/answerList';
+import {Line} from "./line/line";
 import {DialogStyled} from './dialog.styled';
 import {IDialog} from './dialog.type';
-import {clearDialog} from "../../../../store/components/dialog/dialog.action";
+import {clearDialog} from "../../../store/components/dialog/dialog.action";
 
 /* todo:
 *   1. переход по репликам +

@@ -1,8 +1,8 @@
 import React from 'react';
-import {Character} from '../../../common/components/organisms/character/character';
+import {Npc} from '../../../common/components/npc/npc';
 import chars from './characters.json';
 import { IHomePage } from './home.type';
-import { ICharacter } from '../../../common/components/organisms/character/character.type';
+import { INpc } from '../../../common/components/npc/npc.type';
 
 
 const HomePage = (props: IHomePage) => {
@@ -12,8 +12,8 @@ const HomePage = (props: IHomePage) => {
 
     return (
         <>
-            {characters.map((char: ICharacter) =>
-                <Character
+            {characters.map((char: INpc) =>
+                <Npc
                     key={char.name}
                     {...char}
                     />)}

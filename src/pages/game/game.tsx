@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import {BrowserRouter as Router, Route, Switch, useRouteMatch} from 'react-router-dom';
-import Dialog from '../../common/components/organisms/dialog/dialog';
+import Dialog from '../../common/components/dialog/dialog';
 import {HomePage} from './home/home';
 
 
