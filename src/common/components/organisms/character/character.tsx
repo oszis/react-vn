@@ -20,13 +20,10 @@ const Character = (props: ICharacter) => {
     }
 
     return (
-        <mesh
-            scale={scale}
-            position={position}
-            onClick={clickHandler}>
+        <>
             <CanvasImage
                 url={url}/>
-        </mesh>
+        </>
     );
 };
 
