@@ -10,9 +10,9 @@ export const NpcPositionStyled = styled.div<INpcPosition>`
   position: fixed;
   width: 200px;
   height: 400px;
-  top: ${({top}) => top}px;
-  left: ${({left}) => left}px;
-  right: ${({right}) => right}px;
-  bottom: ${({bottom}) => bottom}px;
+  ${({top}) => top ? `top: ${top};`: null}
+  ${({left}) => left ? `left: ${left};`: null}
+  ${({right}) => right ? `right: ${right};`: null}
+  ${({bottom}) => bottom ? `bottom: ${bottom};`: null}
   transform: translate(-50%, -50%);
 `;

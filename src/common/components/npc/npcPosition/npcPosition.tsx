@@ -2,7 +2,7 @@ import React from 'react';
 import {NpcPositionStyled} from './npcPosition.style';
 import {INpcPosition} from "./npcPosition.type";
 
-// todo: этот элемент должен позиционироваться
+// todo: этот элемент должен позиционироваться и скейлиться
 export const NpcPosition: React.FC<INpcPosition> = (
     {children, top, left, right, bottom}) => {
     return (

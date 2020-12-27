@@ -1,6 +1,6 @@
 export interface INpcPosition {
-    top?: number,
-    left?: number,
-    right?: number,
-    bottom?: number
+    top?: string,
+    left?: string,
+    right?: string,
+    bottom?: string
 }
