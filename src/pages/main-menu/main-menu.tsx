@@ -1,8 +1,13 @@
 import React from 'react';
+import {
+    Link
+} from 'react-router-dom';
 
 const MainMenu = () => {
     return (
-        <div>main menu</div>
+        <div>
+            <Link to='/game/home'>game</Link>
+        </div>
     )
 };
 
