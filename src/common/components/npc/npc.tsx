@@ -1,16 +1,13 @@
 import React from 'react';
-import {CanvasImage} from '../../atoms/canvasImage/canvasImage';
-import {ICharacter} from "./character.type";
+import {INpc} from "./npc.type";
 
-const Character = (props: ICharacter) => {
+import { NpcImage } from './npcImage/npcImage';
+import {NpcPosition} from "./npcPosition/npcPosition";
+
+const Npc: React.FC<INpc> = (props) => {
     const {
-        mesh: {
-            scale,
-            position,
-            image: {
-                url
-            }
-        },
+        image,
+        position
     } = props;
 
     // todo: по клику на элемент проверяем, что к персонажу привязан диалог и показываем диалог.
@@ -20,14 +17,13 @@ const Character = (props: ICharacter) => {
     }
 
     return (
-        <>
-            <CanvasImage
-                url={url}/>
-        </>
+        <NpcPosition {...position}>
+            <NpcImage {...image} onClick={(e) => clickHandler(e)}/>
+        </NpcPosition>
     );
 };
 
 export {
-    Character
+    Npc
 };
 

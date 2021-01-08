@@ -23,7 +23,6 @@
         next: {
         },
         result: {},
-        // todo: подумать, как реализовать анимацию для canvas
         ui: {
             animation: {},
         }

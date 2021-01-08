@@ -1,6 +1,6 @@
-import {ICharacter} from "../../../common/components/organisms/character/character.type";
+import {INpc} from "../../../common/components/npc/npc.type";
 
 // todo: будет общий интерфейс для всех страниц
 export interface IHomePage {
-    characters: ICharacter[]
+    characters: INpc[]
 }

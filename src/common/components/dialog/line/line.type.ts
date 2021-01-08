@@ -1,4 +1,4 @@
-import {IAvatar} from "../../atoms/avatar/avatar.type";
+import {IAvatar} from "../avatar/avatar.type";
 import React from "react";
 
 interface LineInterface {

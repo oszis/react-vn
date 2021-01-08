@@ -1,5 +1,5 @@
 import React from "react";
-import Avatar from "../../atoms/avatar/avatar";
+import Avatar from "../avatar/avatar";
 import {LineStyled, LineTextStyled, LineBackgroundStyled} from "./line.styled";
 import {LineInterface} from "./line.type";
 
